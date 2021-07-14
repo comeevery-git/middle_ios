@@ -15,6 +15,8 @@
 		04B3F30F269ECFC6008B0FA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B3F30D269ECFC6008B0FA6 /* LaunchScreen.storyboard */; };
 		04B3F31A269ECFC6008B0FA6 /* middle_todoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3F319269ECFC6008B0FA6 /* middle_todoTests.swift */; };
 		04B3F325269ECFC6008B0FA6 /* middle_todoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3F324269ECFC6008B0FA6 /* middle_todoUITests.swift */; };
+		04B3F334269F1C10008B0FA6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3F333269F1C10008B0FA6 /* Model.swift */; };
+		04B3F336269F1D83008B0FA6 /* MemoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3F335269F1D83008B0FA6 /* MemoListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		04B3F320269ECFC6008B0FA6 /* middle_todoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = middle_todoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B3F324269ECFC6008B0FA6 /* middle_todoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = middle_todoUITests.swift; sourceTree = "<group>"; };
 		04B3F326269ECFC6008B0FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B3F333269F1C10008B0FA6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		04B3F335269F1D83008B0FA6 /* MemoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewController.swift; sourceTree = "<group>"; };
+		04B3F339269F25B1008B0FA6 /* middle_todo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = middle_todo; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +104,16 @@
 		04B3F301269ECFC4008B0FA6 /* middle_todo */ = {
 			isa = PBXGroup;
 			children = (
+				04B3F332269F1BCA008B0FA6 /* Model */,
 				04B3F302269ECFC4008B0FA6 /* AppDelegate.swift */,
+				04B3F339269F25B1008B0FA6 /* middle_todo */,
 				04B3F304269ECFC4008B0FA6 /* SceneDelegate.swift */,
 				04B3F306269ECFC4008B0FA6 /* ViewController.swift */,
 				04B3F308269ECFC4008B0FA6 /* Main.storyboard */,
 				04B3F30B269ECFC6008B0FA6 /* Assets.xcassets */,
 				04B3F30D269ECFC6008B0FA6 /* LaunchScreen.storyboard */,
 				04B3F310269ECFC6008B0FA6 /* Info.plist */,
+				04B3F335269F1D83008B0FA6 /* MemoListTableViewController.swift */,
 			);
 			path = middle_todo;
 			sourceTree = "<group>";
@@ -126,6 +134,14 @@
 				04B3F326269ECFC6008B0FA6 /* Info.plist */,
 			);
 			path = middle_todoUITests;
+			sourceTree = "<group>";
+		};
+		04B3F332269F1BCA008B0FA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04B3F333269F1C10008B0FA6 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +276,9 @@
 			files = (
 				04B3F307269ECFC4008B0FA6 /* ViewController.swift in Sources */,
 				04B3F303269ECFC4008B0FA6 /* AppDelegate.swift in Sources */,
+				04B3F336269F1D83008B0FA6 /* MemoListTableViewController.swift in Sources */,
 				04B3F305269ECFC4008B0FA6 /* SceneDelegate.swift in Sources */,
+				04B3F334269F1C10008B0FA6 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -438,11 +456,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = middle_todo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "middle.middle-todo";
+				PRODUCT_BUNDLE_IDENTIFIER = middle.middle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,11 +475,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = middle_todo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "middle.middle-todo";
+				PRODUCT_BUNDLE_IDENTIFIER = middle.middle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
