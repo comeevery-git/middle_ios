@@ -9,15 +9,50 @@ import UIKit
 
 class MemoListTableViewController: UITableViewController {
 
+    var token: NSObjectProtocol?
+    deinit {
+        if let token = token {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
+    let formatter: DateFormatter = {
+       let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .short
+        f.locale = Locale(identifier: "Ko_kr")
+        return f
+    }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        tableView.reloadData()
+        print(#function)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            // 세그웨이를 실행하는 화면
+            // segue.source
+            
+            // 새롭게 표시되는 화면
+            // segue.destination
+            // -> 실제 타입으로 타입캐스팅하여 메모로 접근
+            if let vc = segue.destination as? DetailViewController {
+                vc.memo = Memo.dummnyMemoList[indexPath.row]
+            }
+            
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        token = NotificationCenter.default.addObserver(forName: ComposeViewController.newMemoDidInsert, object: nil, queue: OperationQueue.main) {
+            [weak self] (noti) in self?.tableView.reloadData()
+        }
     }
+
 
     // MARK: - Table view data source
 
@@ -33,7 +68,8 @@ class MemoListTableViewController: UITableViewController {
         // Configure the cell...
         let target = Memo.dummnyMemoList[indexPath.row]
         cell.textLabel?.text = target.content
-        cell.detailTextLabel?.text = target.insertDate.description
+        cell.detailTextLabel?.text = formatter.string(from: target.insertDate)
+        // cell.detailTextLabel?.text = target.insertDate.description
         
         return cell
     }
