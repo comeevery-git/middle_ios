@@ -73,18 +73,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="메모를 입력하세요." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-D8-ibj">
-                                <rect key="frame" x="0.0" y="56" width="414" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="메모를 입력하세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nhf-Lb-M5L">
+                                <rect key="frame" x="0.0" y="56" width="414" height="746"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CCC-4c-Zu3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="m4C-D8-ibj" firstAttribute="top" secondItem="CCC-4c-Zu3" secondAttribute="top" id="9ZX-hh-5xh"/>
-                            <constraint firstItem="m4C-D8-ibj" firstAttribute="leading" secondItem="CCC-4c-Zu3" secondAttribute="leading" id="AI7-YH-viE"/>
-                            <constraint firstItem="m4C-D8-ibj" firstAttribute="trailing" secondItem="CCC-4c-Zu3" secondAttribute="trailing" id="Veu-DB-pt6"/>
+                            <constraint firstItem="nhf-Lb-M5L" firstAttribute="trailing" secondItem="CCC-4c-Zu3" secondAttribute="trailing" id="UOP-tv-fnP"/>
+                            <constraint firstItem="nhf-Lb-M5L" firstAttribute="leading" secondItem="CCC-4c-Zu3" secondAttribute="leading" id="aZB-Ip-ulw"/>
+                            <constraint firstItem="nhf-Lb-M5L" firstAttribute="top" secondItem="CCC-4c-Zu3" secondAttribute="top" id="ohR-0V-xq5"/>
+                            <constraint firstItem="CCC-4c-Zu3" firstAttribute="bottom" secondItem="nhf-Lb-M5L" secondAttribute="bottom" constant="6" id="vX9-is-NNC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="새 메모" id="bcl-0s-gs6">
@@ -100,7 +103,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="memoTextView" destination="m4C-D8-ibj" id="aZH-MK-uLt"/>
+                        <outlet property="memoTextView" destination="nhf-Lb-M5L" id="6OB-Bh-qgL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zin-g9-sQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -152,7 +155,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chi-xS-nDD">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Item" id="UEy-vw-krf"/>
+                                    <barButtonItem systemItem="compose" id="UEy-vw-krf">
+                                        <connections>
+                                            <segue destination="eeA-iF-o2T" kind="presentation" id="ndF-GS-yfk"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PEN-jW-fVf">
@@ -213,16 +220,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="9Yv-MR-Xfg"/>
+                    <connections>
+                        <outlet property="memoTableView" destination="PEN-jW-fVf" id="toE-zT-YyA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wza-Xx-KL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1749.2753623188407" y="-608.03571428571422"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ndF-GS-yfk"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
             <color red="0.45800000429153442" green="0.46900001168251038" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
