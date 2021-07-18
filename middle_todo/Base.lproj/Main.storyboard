@@ -37,8 +37,8 @@
                                             <rect key="frame" x="20" y="32.5" width="40.5" height="13.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <nil key="textColor"/>
-                                            <color key="highlightedColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" name="MyLabelColor"/>
+                                            <color key="highlightedColor" systemColor="secondaryLabelColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -243,14 +243,20 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ndF-GS-yfk"/>
+        <segue reference="U9Q-yW-EiJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
             <color red="0.45800000429153442" green="0.46900001168251038" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="MyLabelColor">
+            <color red="0.37445986270904541" green="0.48143613338470459" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
