@@ -6,16 +6,16 @@
 //
 
 import Foundation
-class Memo {
-    var content: String
-    var insertDate: Date
-    init(content: String) {
-        self.content = content
-        insertDate = Date()
-    }
-    
-    static var dummnyMemoList = [
-        Memo(content: "Create by middle Team."),
-        Memo(content: "Hello, Middle peoples.")
-    ]
-}
+//class Memo {
+//    var content: String
+//    var insertDate: Date
+//    init(content: String) {
+//        self.content = content
+//        insertDate = Date()
+//    }
+//    
+//    static var dummnyMemoList = [
+//        Memo(content: "Create by middle Team."),
+//        Memo(content: "Hello, Middle peoples.")
+//    ]
+//}

@@ -27,8 +27,13 @@ class MemoListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        // 화면에 표시되기 직전에 호출됨
+        DataManager.shared.fetchMemo()
         tableView.reloadData()
-        print(#function)
+        
+//        tableView.reloadData()
+//        print(#function)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,7 +45,7 @@ class MemoListTableViewController: UITableViewController {
             // segue.destination
             // -> 실제 타입으로 타입캐스팅하여 메모로 접근
             if let vc = segue.destination as? DetailViewController {
-                vc.memo = Memo.dummnyMemoList[indexPath.row]
+                vc.memo = DataManager.shared.memoList[indexPath.row]
             }
             
         }
@@ -49,7 +54,9 @@ class MemoListTableViewController: UITableViewController {
         super.viewDidLoad()
 
         token = NotificationCenter.default.addObserver(forName: ComposeViewController.newMemoDidInsert, object: nil, queue: OperationQueue.main) {
-            [weak self] (noti) in self?.tableView.reloadData()
+            [weak self] (noti) in
+            
+            self?.tableView.reloadData()
         }
     }
 
@@ -58,7 +65,7 @@ class MemoListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Memo.dummnyMemoList.count
+        return DataManager.shared.memoList.count
     }
 
     // Data Model <> tableView
@@ -66,9 +73,9 @@ class MemoListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         // Configure the cell...
-        let target = Memo.dummnyMemoList[indexPath.row]
+        let target = DataManager.shared.memoList[indexPath.row]
         cell.textLabel?.text = target.content
-        cell.detailTextLabel?.text = formatter.string(from: target.insertDate)
+        cell.detailTextLabel?.text = formatter.string(for: target.insertDate)
         // cell.detailTextLabel?.text = target.insertDate.description
         
         return cell
