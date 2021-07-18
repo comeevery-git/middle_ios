@@ -14,7 +14,6 @@ class DetailViewController: UIViewController {
     // 이전화면에서 전달 한 메모값
     var memo: Memo?
     
-    
     let formatter: DateFormatter = {
        let f = DateFormatter()
         f.dateStyle = .long
@@ -22,6 +21,24 @@ class DetailViewController: UIViewController {
         f.locale = Locale(identifier: "Ko_kr")
         return f
     }()
+    
+    
+    @IBAction func deleteMemo(_ sender: Any) {
+        let alert = UIAlertController(title: "삭제 확인", message: "메모를 삭제할까요?", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "삭제", style: .destructive) { [weak self] (action) in
+            // delete
+            DataManager.shared.deleteMemo(self?.memo)
+            // 이전화면으로 돌아가기
+            self?.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination.children.first as? ComposeViewController {
